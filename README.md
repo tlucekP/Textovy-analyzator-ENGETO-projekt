@@ -1,0 +1,1 @@
+# Textovy-analyzator-ENGETO-projekt
