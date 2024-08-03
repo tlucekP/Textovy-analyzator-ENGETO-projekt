@@ -17,8 +17,8 @@ registered = {
     "mike": "password123",
     "liz": "pass123"
 }
-username = input("Zadejte přihlašovací jméno") # vloží username a musím ověřit, zda se nachází v dictu. Když ne, vypíšu hlášku a vyzvu ho znovu.
-password = input("Zadejte heslo")
+username = input("Zadejte přihlašovací jméno: ") # vloží username a musím ověřit, zda se nachází v dictu. Když ne, vypíšu hlášku a vyzvu ho znovu.
+password = input("Zadejte heslo: ")
 
 def verify_user(username, password):
     if username in registered and registered[username] == password:
@@ -27,6 +27,6 @@ def verify_user(username, password):
         return False
 
 if verify_user(username, password):
-    print("ok")
+    print(f"Vítej v textovém analyzátoru, {username}!")
 else:
-    print("neok")
+    print("Špatný login. Zkuste to znova. Program se nyní ukončí")
