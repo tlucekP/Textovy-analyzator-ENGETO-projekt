@@ -59,3 +59,20 @@ else:
 print("Zvolili jste následující text:", sep="\n")
 print("-" * 55)
 print(vybrany_text)
+
+slova = vybrany_text.split() #musím rozdělit slova v textu
+pocet_slov = len(slova) # zjistím si počet slov
+slova_velke_pismeno_tit = sum(1 for slovo in slova if slovo.istitle()) # počet slov začínající velkým písmenem
+slova_velka_pismena = sum(1 for slovo in slova if slovo.isupper()) # počet slov obsahující velká písmena
+slova_mala_pismena = sum(1 for slovo in slova if slovo.islower()) # počet slov obsahující malá písmena
+pocet_cisel = sum(1 for slovo in slova if slovo.isdigit()) # počet čísel v textu
+suma_cisel = sum(int(slovo) for slovo in slova if slovo.isdigit()) # součet všech čísel v textu
+
+print("-" * 55)
+print(f"Ve vybraném textu je {pocet_slov} slov.")
+print(f"Ve vybraném textu je {slova_velke_pismeno_tit} slov začínajících velkým písmenem.")
+print(f"Ve vybraném textu je {slova_velka_pismena} slov obsahující všechna písmena velká.")
+print(f"Ve vybraném textu je {slova_mala_pismena} slov obsahující všechna písmena malá.")
+print(f"Ve vybraném textu je {pocet_cisel} počet čísel.")
+print(f"Ve vybraném textu je součet všch čísel {suma_cisel}.")
+print("-" * 55)
