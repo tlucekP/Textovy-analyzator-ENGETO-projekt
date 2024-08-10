@@ -3,7 +3,6 @@
 projekt_1.py: první projekt do Engeto Online Python Akademie
 
 author: Peter Tlučhoř
-
 email: tluchor.peter@outlook.com
 
 discord: Tlucek#0754
@@ -45,20 +44,23 @@ print("=" * 55)
 print("VYBER SI TEXT K ANALÝZE")
 print("=" * 55)
 
+def kontrola_vstupu(value):
+    """Kontroluje, zda vstupní hodnota je integer v rozmězí 1-3."""
+    return value.isdigit() and 1 <= int(value) <= 3
 vybrany_text = None
 while vybrany_text is None:
-    vstup = int(input("Zadejte číslo textu k analýze (1 - 3): "))
-    if vstup == 1:
-        vybrany_text = TEXTS[0]
-        break
-    elif vstup == 2:
-        vybrany_text = TEXTS[1]
-        break
-    elif vstup == 3:
-        vybrany_text = TEXTS[2]
-        break
-else:
-    print("Neplatná volba. Zadejte číslo 1, 2 nebo 3.")
+    vstup = input("Zadejte číslo textu k analýze (1 - 3): ")
+    if kontrola_vstupu(vstup):
+        vstup = int(vstup)
+        if vstup == 1:
+            vybrany_text = TEXTS[0]
+        elif vstup == 2:
+            vybrany_text = TEXTS[1]
+        elif vstup == 3:
+            vybrany_text = TEXTS[2]
+    else:
+        print("Neplatná volba. Program se nyní ukončí.")
+        sys.exit()
 print("Zvolili jste následující text:", sep="\n")
 print("-" * 55)
 print(vybrany_text)
