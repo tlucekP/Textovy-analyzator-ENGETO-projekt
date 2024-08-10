@@ -59,7 +59,7 @@ while vybrany_text is None:
         elif vstup == 3:
             vybrany_text = TEXTS[2]
     else:
-        print("Neplatná volba. Program se nyní ukončí.")
+        print("Neplatná volba. Program se nyní ukončí. Zkuste to, prosím, znovu.")
         sys.exit()
 print("Zvolili jste následující text:", sep="\n")
 print("-" * 55)
