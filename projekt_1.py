@@ -10,7 +10,9 @@ discord: Tlucek#0754
 
 """
 
-# Nejdřív musím vytvořit databázi registrovaných uživatelů a jejich hesel. Jelikož se jedná o páry klíč+hodnota, vytvořím dict.
+# Nejdřív musím vytvořit databázi registrovaných uživatelů a jejich hesel. Jelikož se jedná o páry klíč+hodnota, vytvořím dict. Musím importovat modul "sys"
+# abych využil "sys.exit" pro ukončení programu.
+import sys
 registered = {
     "bob": "123",
     "ann": "pass123",
@@ -33,6 +35,7 @@ if verify_user(username, password):
     print(f"Vítej v textovém analyzátoru, {username}!")
 else:
     print("Špatný login. Zkuste to znova. Program se nyní ukončí")
+    sys.exit()
 
 from texty import TEXTS # importuji texty z externího souboru
 text_1 = TEXTS[0]
@@ -76,3 +79,16 @@ print(f"Ve vybraném textu je {slova_mala_pismena} slov obsahující všechna p�
 print(f"Ve vybraném textu je {pocet_cisel} počet čísel.")
 print(f"Ve vybraném textu je součet všch čísel {suma_cisel}.")
 print("-" * 55)
+
+delka_slova = {} # vytvořím dict pro výpočet četnosti délek slov
+for slovo in slova:
+    delka = len(slovo)
+    if delka in delka_slova:
+        delka_slova[delka] += 1
+    else:
+        delka_slova[delka] = 1
+max_frekvence = max(delka_slova.values()) # max počet hvězdiček pro sloupec OCCURENCES
+max_occurences = max(15, max_frekvence) # šířka sloupce OCCURENCES, musím zvolit dynamické zadání, protože nevím jak velká slova tam jsou
+print(f"\nLEN| {'OCCURENCES'.center(max_occurences)} |NR") # jelikož tam můžou být různě dlouhá slova, musím použít formátování dle max_occurences
+for delka, frekvence in sorted(delka_slova.items()):
+    print(f"{delka:<3}| {'*' * frekvence:<{max_occurences}} |{frekvence:<2}") # využívám dynamické formátování textu při výpisu
