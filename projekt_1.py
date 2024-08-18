@@ -9,12 +9,10 @@ discord: Tlucek#0754
 
 """
 
-# Nejdřív musím vytvořit databázi registrovaných uživatelů a jejich hesel. Jelikož se jedná o páry klíč+hodnota, vytvořím dict. Musím importovat modul "sys"
-# abych využil "sys.exit" pro ukončení programu.
-
 from texty import TEXTS # importuji texty z externího souboru
 import string # v analýze použiju modul string s proměnnou punctuation pro identifikaci interpunkčních znamének k očištění ve slovech
 
+# Nejdřív musím vytvořit databázi registrovaných uživatelů a jejich hesel. Jelikož se jedná o páry klíč+hodnota, vytvořím dict.
 registered = {
     "bob": "123",
     "ann": "pass123",
