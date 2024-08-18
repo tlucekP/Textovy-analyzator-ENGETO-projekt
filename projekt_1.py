@@ -55,7 +55,6 @@ def main(): # celou analýzu textu zadefinuji do main funkce
             cislo = float(slovo)
             counter["cisla"] += 1
             counter["sum"] += cislo
-            # counter["vsechnaslova"] +=1
         except ValueError:
             pass
         counter["vsechnaslova"] +=1
@@ -75,7 +74,7 @@ def main(): # celou analýzu textu zadefinuji do main funkce
     print(f"Ve vybraném textu je {counter['SLOVA']} slov obsahující všechna písmena velká.")
     print(f"Ve vybraném textu je {counter['slova']} slov obsahující všechna písmena malá.")
     print(f"Ve vybraném textu je {counter['cisla']} počet čísel.")
-    print(f"Ve vybraném textu je {counter['sum']} součtem všech čísel")
+    print(f"Ve vybraném textu je {counter['sum']} součtem všech čísel.")
 
     max_frekvence = max(counter["lenstat"].values(), default=0) # max počet hvězdiček pro sloupec OCCURENCES
     max_occurences = max(15, max_frekvence) # šířka sloupce OCCURENCES, musím zvolit dynamické zadání, protože nevím jak velká slova tam jsou
